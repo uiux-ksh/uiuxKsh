@@ -12,8 +12,8 @@ const pretendard = localFont({
   variable: '--font-pretendard',
 })
 export const metadata: Metadata = {
-  title: 'KHUB',
-  description: 'KHUB_페이지입니다.',
+  title: '김성훈',
+  description: '포트폴리오',
 }
 
 export default function RootLayout({
