@@ -51,6 +51,8 @@ function MainSection() {
                     <span
                       key={index}
                       className='name'
+                      // @ts-ignore
+
                       ref={(el) => (spansRef.current[index] = el)}
                     >
                       {char}
@@ -62,6 +64,8 @@ function MainSection() {
                     <span
                       key={index + 3}
                       className='name'
+                      // @ts-ignore
+
                       ref={(el) => (spansRef.current[index + 3] = el)}
                     >
                       {char}
@@ -78,6 +82,8 @@ function MainSection() {
                     <span
                       key={index + 6}
                       className='name'
+                      // @ts-ignore
+
                       ref={(el) => (spansRef.current[index + 6] = el)}
                     >
                       {char}
@@ -89,6 +95,8 @@ function MainSection() {
                     <span
                       key={index + 11}
                       className='name'
+                      // @ts-ignore
+
                       ref={(el) => (spansRef.current[index + 11] = el)}
                     >
                       {char}
@@ -104,6 +112,8 @@ function MainSection() {
                 <span
                   key={index + 11}
                   className='name'
+                  // @ts-ignore
+
                   ref={(el) => (spansRef.current[index + 15] = el)}
                 >
                   {char}
@@ -115,6 +125,8 @@ function MainSection() {
                 <span
                   key={index + 11}
                   className='name'
+                  // @ts-ignore
+
                   ref={(el) => (spansRef.current[index + 23] = el)}
                 >
                   {char}
