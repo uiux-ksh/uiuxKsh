@@ -1,0 +1,77 @@
+.lastSection {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: #fdc830; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #fdc830, #f37335); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #fdc830, #f37335); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.lastSection svg {
+    width: 1200px;
+    height: 200px;
+    font-size: 120px;
+    font-weight: 800;
+    background: transparent;
+
+}
+
+.lastSection text {
+    fill: #fff;
+    stroke: #d81b0d;
+    stroke-dasharray: 326px;
+    stroke-width: 1px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 3s infinite linear;
+}
+
+.lastSection .chr {
+    position: absolute;
+    bottom: 100px;
+}
+
+.chr img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    background: transparent;
+    animation: rotate 1s infinite alternate;
+
+}
+
+
+@keyframes rotate {
+
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(30px);
+    }
+
+}
+
+
+@keyframes stroke-offset {
+    0% {
+        stroke: #d81b0d;
+        stroke-width: 3px;
+        stroke-dashoffset: 326px;
+    }
+    70% {
+        fill: transparent;
+    }
+    98% {
+        stroke: #d81b0d;
+        stroke-width: 2px;
+    }
+    100% {
+        fill: #d81b0d;
+        stroke-dashoffset: 0px;
+    }
+}

@@ -1,0 +1,104 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
+    background: linear-gradient(to right, #8f94fb, #4e54c8);
+}
+
+.hero-section .container {
+}
+
+.hero-section .container .title {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+
+    line-height: 0.9;
+}
+
+.hero-section .hero-content .title span {
+    display: inline-block;
+    font-family: "Bebas Neue";
+    font-size: 15vw;
+    color: #fff;
+
+}
+
+.hero-section .container .post {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hero-section .container .post span {
+    display: inline-block;
+    text-align: center;
+    font-family: "Bebas Neue";
+    font-weight: 400;
+    color: #fff;
+    font-size: 3vw;
+}
+
+
+.hero-section .particles .rectangel {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(226, 219, 219.5);
+    box-shadow: 9px 2px 13px rgba(41, 40, 40, .2);
+    position: absolute;
+    border-radius: 6px;
+    z-index: 1;
+    transform: rotate(45deg);
+
+    animation: rotateAnimation 5s infinite linear;
+
+}
+
+.hero-section .particles .rectangel_0 {
+    top: 14vh;
+    left: 24vw;
+}
+
+.hero-section .particles .rectangel_1 {
+    top: 34vh;
+    left: 83vw;
+    transform: scale(0.8) rotate(20deg);
+}
+
+.hero-section .particles .rectangel_2 {
+    top: 70vh;
+    left: 91vw;
+}
+
+.hero-section .particles .rectangel_3 {
+    top: 70vh;
+    left: 9vw;
+    transform: scale(0.8) rotate(20deg);
+}
+
+
+@keyframes rotateAnimation {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.Scroll {
+    position: absolute;
+    color: #fff;
+    font-size: 24px;
+    bottom: 100px
+}

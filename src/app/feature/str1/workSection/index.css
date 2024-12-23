@@ -1,0 +1,109 @@
+.work-section {
+    padding-bottom: 180px;
+}
+
+.work-section .work-title {
+    padding: 180px 0 100px;
+    text-align: center;
+    font-size: 72px;
+    text-transform: uppercase;
+}
+
+.work-section .particlpate-title {
+    text-align: center;
+    font-size: 48px;
+}
+
+.particlpate-title h2 {
+    text-align: center;
+    width: 60vw;
+    margin: 2px auto;
+    overflow: hidden;
+
+}
+
+.particlpate-title h2 span {
+    display: block;
+    transform: translateY(90px);
+}
+
+
+.particle-img {
+    margin: 150px auto 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 1200px;
+}
+
+.particle-img li {
+    width: 350px;
+    position: relative;
+    height: 350px;
+    box-sizing: border-box;
+}
+
+.particle-img li a img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.particle-img li::before,
+.particle-img li::after,
+.particle-img li > a::before,
+.particle-img li > a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    transition: 1s;
+}
+
+.particle-img li::before {
+    width: 0;
+    height: 1px;
+    background: #4e54c8;
+    top: -1px;
+    left: 0;
+}
+
+.particle-img li::after {
+    width: 0;
+    height: 1px;
+    background: #4e54c8;
+    right: 0;
+    bottom: -1px;
+}
+
+.particle-img li > a::before {
+    height: 0;
+    width: 1px;
+    background: #4e54c8;
+    bottom: 0;
+    left: -1px;
+}
+
+.particle-img li > a::after {
+    height: 0;
+    width: 1px;
+    background: #4e54c8;
+    top: 0;
+    right: -1px;
+}
+
+.particle-img li:hover {
+    border: 1px solid transparent;
+}
+
+.particle-img li:hover::before,
+.particle-img li:hover::after {
+    width: 100%;
+}
+
+.particle-img li > a:hover::before,
+.particle-img li > a:hover::after {
+    height: 100%;
+    will-change: transform;
+}

@@ -1,0 +1,39 @@
+:root {
+  --headerTopColor: #F9F9F9;
+  --defaultTextColor: #000;
+  --Genetic-Ruby: #ff7575;
+  --Bluish-05: #919BB8;
+  --Bluish-08: #E3E6ED;
+  --font: '__pretendard_fde3a9', '__pretendard_Fallback_fde3a9';
+}
+
+@mixin set-color($c:red) {
+  color: $c;
+
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font);
+}
+
+li, ul, ol, dl {
+  list-style: none;
+}
+
+a {
+  @include set-color;
+  text-decoration: none;
+  //color:var(--defaultTextColor);
+}
+
+img {
+  vertical-align: middle;
+}
+
+em {
+  font-style: normal;
+}
+

@@ -1,0 +1,16 @@
+@mixin  flexBox($r:row,$gap:0,$just:center,$item:center) {
+  display: flex;
+  flex-direction: $r;
+  justify-content: $just;
+  align-items: $item;
+  gap:$gap;
+}
+
+
+@mixin positionBox ($p:absolute,$t,$l,$r,$b) {
+  position: $p;
+  top:$t;
+  left:$l;
+  right:$r;
+  bottom:$b;
+}
