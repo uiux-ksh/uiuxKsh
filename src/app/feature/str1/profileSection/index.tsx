@@ -133,7 +133,7 @@ function ProfileSection() {
               </div>
             </div>
 
-            <div className='detail'>
+            <div className="detail">
               <h3>정리</h3>
               <pre>
                 경험해본 기술:mui,react-hooks-form, <br />
@@ -144,9 +144,13 @@ function ProfileSection() {
                 자주 사용하는 기술:next.js,react-query,sass, <br />
                 git,zustand,typescript,반응형,gsap(최근사용)
               </pre>
+
+              <pre style={{ textTransform: 'initial' }}>
+                github주소:https://github.com/uiux-ksh
+              </pre>
             </div>
           </div>
-          <div className='panel-text purple-text'>
+          <div className="panel-text purple-text">
             <h1>history</h1>
             <div className='text-wrap'>
               <h5>디엑스앤브이엑스</h5>
