@@ -142,7 +142,7 @@ function ProfileSection() {
 
               <pre>
                 자주 사용하는 기술:next.js,react-query,sass, <br />
-                git,zustand,typescript
+                git,zustand,typescript,반응형,gsap(최근사용)
               </pre>
             </div>
           </div>
