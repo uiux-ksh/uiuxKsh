@@ -1,0 +1,237 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(78, 84, 200, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 84, 200, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(78, 84, 200, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+// 배경 기하학 SVG
+.floatingSvg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svgCircle1 { top: 30%; left: 3%; }
+.svgTriangle { top: 65%; right: 5%; }
+.svgHex { bottom: 20%; left: 40%; }
+
+// 플로팅 키워드 배지
+.keywordBadge {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+}
+
+.badgeText {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--badge-color);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--badge-color) 30%, transparent);
+}
+
+.badge_lg {
+  padding: 10px 20px;
+
+  .badgeText {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+}
+
+.badge_md {
+  padding: 7px 16px;
+
+  .badgeText {
+    font-size: 14px;
+  }
+}
+
+.badge_sm {
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.03);
+
+  .badgeText {
+    font-size: 11px;
+    opacity: 0.7;
+  }
+}
+
+// 3D 큐브
+.cube {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 0;
+  transform-style: preserve-3d;
+  perspective: 200px;
+  will-change: transform;
+}
+
+.cubeFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(143, 148, 251, 0.15);
+  background: var(--face-color, rgba(143, 148, 251, 0.05));
+  border-radius: 4px;
+
+  &:nth-child(1) {
+    transform: rotateY(0deg) translateZ(20px);
+  }
+  &:nth-child(2) {
+    transform: rotateY(90deg) translateZ(20px);
+  }
+  &:nth-child(3) {
+    transform: rotateX(90deg) translateZ(20px);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 6px;
+  color: var(--color-accent-light);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 40px;
+}
+
+.greeting {
+  display: inline-block;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  letter-spacing: 4px;
+}
+
+.nameHighlight {
+  display: inline-block;
+  font-size: clamp(52px, 12vw, 120px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-accent-light), #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+}
+
+.nameSuffix {
+  display: inline-block;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  margin-left: 8px;
+  letter-spacing: 2px;
+}
+
+.intro {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.introMain {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.introSub {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--color-text-muted);
+  }
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: var(--color-accent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.4); opacity: 0.3; }
+}
+
+@media (max-width: 640px) {
+  .introSub br { display: none; }
+
+  .keywordBadge {
+    display: none;
+  }
+
+  .cube {
+    display: none;
+  }
+
+  .greeting {
+    letter-spacing: 2px;
+  }
+
+  .nameSuffix {
+    margin-left: 4px;
+  }
+}

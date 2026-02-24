@@ -1,0 +1,250 @@
+.career {
+  position: relative;
+  padding: 120px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+// 배경 SVG 장식
+.bgSvg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg1 { top: 5%; right: 5%; }
+.bg2 { top: 20%; left: 3%; }
+.bg3 { top: 45%; right: 8%; }
+.bg4 { top: 65%; left: 2%; }
+.bg5 { top: 80%; right: 10%; }
+.bg6 { top: 35%; left: 8%; }
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 6px;
+  color: var(--color-accent-light);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+  transform-origin: top center;
+}
+
+// 종이비행기 커브 경로 — 넓은 영역
+.planePathSvg {
+  position: absolute;
+  left: calc(50% - 200px);
+  top: 0;
+  width: 400px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.plane {
+  position: absolute;
+  z-index: 4;
+  filter: drop-shadow(0 4px 16px rgba(143, 148, 251, 0.4));
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 60px 60px;
+  z-index: 1;
+
+  &.left {
+    padding-right: 60px;
+    padding-left: 0;
+  }
+  &.right {
+    margin-left: 50%;
+    padding-left: 60px;
+    padding-right: 0;
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid var(--color-bg);
+  z-index: 2;
+  transition: box-shadow 0.3s ease;
+
+  .left & {
+    right: -8px;
+  }
+  .right & {
+    left: -8px;
+  }
+}
+
+.card {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 28px;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out-quart), border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 32px rgba(78, 84, 200, 0.1);
+  }
+}
+
+.cardAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-radius: 0 2px 2px 0;
+}
+
+.cardHeader {
+  margin-bottom: 12px;
+}
+
+.period {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+}
+
+.company {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 4px 0;
+}
+
+.role {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: var(--color-accent-light);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.detailList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+
+  li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-text-muted);
+    }
+  }
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border: 1px solid;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 860px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timelineLine {
+    left: 0;
+  }
+
+  .planePathSvg {
+    left: -200px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding: 0 0 40px 40px;
+
+    &.left {
+      padding-left: 40px;
+      padding-right: 0;
+    }
+    &.right {
+      margin-left: 0;
+      padding-left: 40px;
+      padding-right: 0;
+    }
+  }
+
+  .timelineDot {
+    .left &,
+    .right & {
+      left: -8px;
+      right: auto;
+    }
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
