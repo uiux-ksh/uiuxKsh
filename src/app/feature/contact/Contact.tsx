@@ -53,13 +53,16 @@ export default function Contact() {
               start: 'top 70%',
             },
             onComplete: () => {
-              shapes.forEach((el, i) => {
-                gsap.to(el, {
-                  y: '+=10',
-                  duration: 2 + (i % 3) * 0.4,
-                  ease: 'sine.inOut',
-                  yoyo: true,
-                  repeat: -1,
+              // ctx.add 로 감싸야 비동기 생성 트윈도 context 에 등록되어 언마운트 시 정리됨
+              ctx.add(() => {
+                shapes.forEach((el, i) => {
+                  gsap.to(el, {
+                    y: '+=10',
+                    duration: 2 + (i % 3) * 0.4,
+                    ease: 'sine.inOut',
+                    yoyo: true,
+                    repeat: -1,
+                  });
                 });
               });
             },
