@@ -5,74 +5,202 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 120px 40px 60px;
+  padding: 140px 40px 60px;
   overflow: hidden;
 }
 
 .bgGlow {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(78, 84, 200, 0.12), transparent 60%);
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(circle, rgba(78, 84, 200, 0.18), transparent 60%);
   pointer-events: none;
+  z-index: 0;
 }
 
-.strokeText {
-  width: clamp(300px, 70vw, 800px);
-  margin-bottom: 20px;
+// ===== 떨어지는 도형들 =====
+.shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.svgText {
-  font-family: var(--font-display);
-  font-size: 110px;
-  fill: none;
-  stroke: var(--color-accent);
-  stroke-width: 1.5;
-  stroke-dasharray: 1000;
+.shape {
+  position: absolute;
+  display: block;
+  will-change: transform;
 }
 
-.title {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-text);
+.shapeCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  box-shadow: 0 12px 40px rgba(78, 84, 200, 0.45);
+}
+
+.shapeRing {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-light);
+  background: transparent;
+  opacity: 0.85;
+}
+
+.shapeRingSm {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  opacity: 0.6;
+}
+
+.shapeSquare {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, rgba(143, 148, 251, 0.85), rgba(78, 84, 200, 0.85));
+  transform: rotate(12deg);
+  box-shadow: 0 14px 36px rgba(78, 84, 200, 0.4);
+}
+
+.shapeTriangle {
+  width: 0;
+  height: 0;
+  border-left: 36px solid transparent;
+  border-right: 36px solid transparent;
+  border-bottom: 60px solid var(--color-accent);
+  filter: drop-shadow(0 12px 24px rgba(78, 84, 200, 0.4));
+  opacity: 0.9;
+}
+
+.shapeDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 24px var(--color-accent-light);
+}
+
+.shapeCross {
+  width: 42px;
+  height: 42px;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: var(--color-accent-light);
+    border-radius: 2px;
+  }
+
+  &::before {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    transform: translateX(-50%);
+  }
+}
+
+.shapeBlob {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, rgba(143, 148, 251, 0.6), rgba(78, 84, 200, 0.1) 70%);
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  filter: blur(2px);
+}
+
+// ===== 콘텐츠 =====
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-bottom: 12px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: var(--color-accent-light);
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.headline {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--color-text);
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.highlight {
+  background: linear-gradient(120deg, var(--color-accent), var(--color-accent-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
 }
 
 .subtitle {
   font-size: 16px;
   color: var(--color-text-secondary);
-  text-align: center;
-  margin-bottom: 48px;
+  margin: 0 0 56px;
+  line-height: 1.6;
 }
 
 .contactGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  max-width: 600px;
   width: 100%;
-  margin-bottom: 60px;
+  max-width: 640px;
 }
 
 .contactCard {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 20px;
+  padding: 22px 24px;
   background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  transition: all 0.3s var(--ease-out-quart);
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.06));
+  border-radius: 14px;
+  transition: transform 0.4s var(--ease-out-quart), border-color 0.3s ease, background 0.3s ease;
   text-decoration: none;
+  outline: none;
 
   &:hover {
     border-color: var(--color-accent);
-    transform: translateY(-4px);
-    background: var(--color-surface);
+    transform: translateY(-6px);
+    background: var(--color-bg-card);
+    filter: brightness(1.15);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-color: var(--color-accent);
   }
 }
 
@@ -88,29 +216,54 @@
   font-size: 15px;
   font-weight: 500;
   color: var(--color-text);
+  word-break: break-all;
 }
 
 .footer {
-  margin-top: auto;
-  padding-top: 40px;
+  position: relative;
+  z-index: 2;
+  margin-top: 80px;
+  padding-top: 32px;
   text-align: center;
+  width: 100%;
 
   p {
     font-size: 13px;
     color: var(--color-text-muted);
+    letter-spacing: 0.5px;
   }
 }
 
 @media (max-width: 640px) {
+  .contact {
+    padding: 100px 20px 40px;
+  }
+
   .contactGrid {
     grid-template-columns: 1fr;
   }
 
-  .title {
-    font-size: 24px;
+  .headline {
+    font-size: 36px;
   }
 
-  .contact {
-    padding: 80px 20px 40px;
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  // 모바일에선 큰 도형들은 줄이고 일부는 숨김
+  .shapeCircle { width: 44px; height: 44px; }
+  .shapeRing { width: 60px; height: 60px; }
+  .shapeSquare { width: 38px; height: 38px; }
+  .shapeBlob,
+  .shapeRingSm {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shape {
+    display: none;
   }
 }
