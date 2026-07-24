@@ -14,7 +14,7 @@ const INFO_ITEMS = [
   { label: '이메일', value: 'uiux-ksh@naver.com' },
   { label: '연락처', value: '010-3679-5721' },
   { label: '학력', value: '신안산대학교 전자정보통신과' },
-  { label: '경력', value: '4년+' },
+  { label: '경력', value: '5년+' },
 ];
 
 export default function About() {

@@ -191,7 +191,7 @@ export default function Hero() {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.label}>Frontend Developer &middot; 4+ Years</p>
+        <p className={styles.label}>Frontend Developer &middot; 5+ Years</p>
         <h1 ref={titleRef} className={styles.title}>
           <span className="title-line" style={{ display: 'block' }}>
             <span className={styles.greeting}>안녕하세요</span>
