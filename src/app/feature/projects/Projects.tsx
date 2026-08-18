@@ -122,6 +122,8 @@ const PROJECTS = [
     bgColor: '#0f0a1a',
     accentColor: '#8b5cf6',
     tags: ['Next.js', 'React Flow', 'WebSocket', 'SSE', 'React Query', 'Zustand', 'TypeScript'],
+    link: '/reportmcp',
+    linkLabel: 'ReportMCP 템플릿 에디터 보기',
   },
   {
     id: 'dxvx-chat',
@@ -173,7 +175,6 @@ const PROJECTS = [
     bgColor: '#1a0f05',
     accentColor: '#ff6b35',
     tags: ['React', 'GSAP', 'Canvas API', 'Sass'],
-    link: 'https://smailgate-photo.vercel.app/',
   },
   {
     id: 'genesis',
@@ -209,7 +210,6 @@ const PROJECTS = [
     bgColor: '#041520',
     accentColor: '#0ea5e9',
     tags: ['Next.js', 'Zustand', 'Sass'],
-    link: 'https://www.tidamungu.co.kr/',
   },
 ];
 
@@ -335,12 +335,17 @@ export default function Projects() {
               {project.link && (
                 <a
                   href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  // 내부 라우트(/reportmcp 등)는 같은 탭에서 연다
+                  {...(project.link.startsWith('/')
+                    ? {}
+                    : { target: '_blank', rel: 'noopener noreferrer' })}
                   className={styles.projectLink}
                   style={{ background: project.accentColor }}
                 >
-                  라이브 사이트 보기 &rarr;
+                  {'linkLabel' in project && project.linkLabel
+                    ? project.linkLabel
+                    : '라이브 사이트 보기'}{' '}
+                  &rarr;
                 </a>
               )}
             </div>

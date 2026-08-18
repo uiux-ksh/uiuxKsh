@@ -1,0 +1,703 @@
+// /reportmcp — ReportMCP 템플릿 에디터 소개.
+// 포트폴리오 다크 테마(globals.scss 변수) + 디딤 보라(#8b5cf6) 액센트.
+
+$accent: #8b5cf6;
+$accent-soft: rgba(139, 92, 246, 0.14);
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding-bottom: 120px;
+}
+
+// ------------------------------------------------------------ hero
+.hero {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 40px 48px;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--color-accent-light);
+  }
+}
+
+.heroLabel {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 6px;
+  color: $accent;
+  margin-bottom: 14px;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+
+  em {
+    font-style: normal;
+    background: linear-gradient(135deg, $accent, #c4b5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.heroDesc {
+  max-width: 640px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: 12px;
+
+  b {
+    color: #c4b5fd;
+  }
+}
+
+.heroSub {
+  max-width: 640px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+// ------------------------------------------------------------ common
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $accent;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+}
+
+// ------------------------------------------------------------ live demo
+.demo {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 40px 0;
+}
+
+.demoHead {
+  margin-bottom: 18px;
+}
+
+.demoDesc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 720px;
+
+  b {
+    color: #fca5a5;
+  }
+}
+
+.newTab {
+  margin-left: 10px;
+  color: var(--color-accent-light);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// 브라우저 창 프레임 느낌의 셸
+.frameShell {
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.12);
+}
+
+.frameBar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 16px;
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border);
+
+  span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-surface);
+
+    &:nth-child(1) { background: #f87171; }
+    &:nth-child(2) { background: #fbbf24; }
+    &:nth-child(3) { background: #34d399; }
+  }
+
+  em {
+    margin-left: 12px;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 0;
+  background: #fff;
+}
+
+// ------------------------------------------------------------ guide cards
+.guide {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 72px 40px 0;
+}
+
+.guideDesc {
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-bg-card);
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    border-color: rgba(139, 92, 246, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(139, 92, 246, 0.1);
+  }
+}
+
+.cardHit {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+.cardThumb {
+  width: 100%;
+  height: 148px;
+  background: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardBody {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cardTitle {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cardSummary {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMore {
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $accent;
+}
+
+.badge {
+  flex: none;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #c4b5fd;
+  background: $accent-soft;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.badgeLarge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c4b5fd;
+  background: $accent-soft;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+
+// ------------------------------------------------------------ overlay (블로그 뷰)
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 4, 8, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px;
+  overflow-y: auto;
+}
+
+.sheet {
+  width: min(760px, 100%);
+  height: fit-content;
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.sheetBar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 12px 26px;
+  background: rgba(17, 17, 19, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sheetLabel {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.btnClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+}
+
+// 블로그 글 타이포그래피
+.article {
+  padding: 30px 42px 38px;
+
+  @media (max-width: 640px) {
+    padding: 22px 20px 30px;
+  }
+}
+
+.articleHead {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+
+  h1 {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+}
+
+.articleSub {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.articleBody {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #d4d4dc;
+
+  p {
+    margin-bottom: 14px;
+  }
+
+  b {
+    color: #ede9fe;
+  }
+
+  h4 {
+    margin: 26px 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    padding-left: 10px;
+    border-left: 3px solid $accent;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+
+    li {
+      margin: 5px 0;
+
+      &::marker {
+        color: $accent;
+      }
+    }
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.86em;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.22);
+    border-radius: 5px;
+    padding: 1px 6px;
+    color: #c4b5fd;
+  }
+
+  blockquote {
+    margin: 16px 0;
+    padding: 13px 18px;
+    border-left: 4px solid #fbbf24;
+    background: rgba(251, 191, 36, 0.06);
+    border-radius: 0 10px 10px 0;
+    color: #e5decf;
+
+    p {
+      margin-bottom: 6px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 14px 0 18px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+
+    th,
+    td {
+      border: 1px solid var(--color-border);
+      padding: 9px 13px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--color-bg-card);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+  }
+}
+
+.articleNav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+
+  button {
+    max-width: 48%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+
+    &:hover:not(:disabled) {
+      border-color: rgba(139, 92, 246, 0.6);
+      color: var(--color-text);
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+  }
+}
+
+// ------------------------------------------------------------ images
+.imgFigure {
+  margin: 18px 0;
+
+  img {
+    display: block;
+    max-width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.imgFigureThumb {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+%placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--color-text-muted);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-bg-light),
+    var(--color-bg-light) 12px,
+    var(--color-bg-card) 12px,
+    var(--color-bg-card) 24px
+  );
+  border: 1px dashed var(--color-border);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.imgPlaceholder {
+  @extend %placeholder;
+  margin: 18px 0;
+  min-height: 170px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.imgPlaceholderThumb {
+  @extend %placeholder;
+  width: 100%;
+  height: 100%;
+  border: 0;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.imgPlaceholderName {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10.5px;
+  max-width: 92%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// ------------------------------------------------------------ responsive
+@media (max-width: 768px) {
+  .hero,
+  .demo,
+  .guide {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .frame {
+    height: 560px;
+  }
+}
+
+// ------------------------------------------------------------ 이미지 100% 확대 뷰어
+// 아티클 본문 이미지를 클릭 대상으로 감싸는 버튼
+.zoomHit {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  font-family: inherit;
+
+  img {
+    display: block;
+    max-width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.15s ease;
+  }
+
+  &:hover img {
+    border-color: rgba(139, 92, 246, 0.55);
+  }
+
+  &:hover .zoomIcon {
+    opacity: 1;
+  }
+}
+
+// 호버 시 우상단에 뜨는 돋보기 힌트
+.zoomIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(10, 10, 12, 0.72);
+  color: #e5e5ee;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+
+  svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+// 전체 화면 라이트박스 — 원본 픽셀(100%) 그대로, 넘치면 스크롤
+.zoomOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200; // 아티클 오버레이(100) 위
+  display: flex;
+  background: rgba(2, 2, 5, 0.9);
+  backdrop-filter: blur(4px);
+  overflow: auto;
+  cursor: zoom-out;
+}
+
+.zoomImg {
+  // max-width 를 풀어 원본 크기 그대로. margin:auto 로
+  // 화면보다 작으면 중앙, 크면 양방향 스크롤.
+  max-width: none;
+  width: auto;
+  height: auto;
+  margin: auto;
+  padding: 56px 24px 24px;
+  box-sizing: content-box;
+}
+
+.zoomBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 10px 22px;
+  background: linear-gradient(rgba(2, 2, 5, 0.85), rgba(2, 2, 5, 0));
+  pointer-events: none; // 배경 클릭-닫기를 막지 않기
+  cursor: default;
+
+  span {
+    font-size: 12.5px;
+    color: var(--color-text-secondary);
+  }
+
+  button {
+    pointer-events: auto;
+  }
+}
