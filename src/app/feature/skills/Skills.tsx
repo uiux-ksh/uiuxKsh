@@ -105,6 +105,9 @@ export default function Skills() {
         <div className={styles.header}>
           <span className={styles.label}>SKILLS</span>
           <h2 className={styles.sectionTitle}>기술 스택</h2>
+          <p className={styles.headerNote}>
+            % 수치는 프로젝트에서 자주 사용한 정도를 기준으로 적어놓았습니다.
+          </p>
         </div>
 
         <div className={styles.grid}>

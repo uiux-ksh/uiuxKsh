@@ -1,0 +1,27 @@
+// /reportmcp/monitoring — 블로그 상세 글 컨테이너.
+// 본문 타이포그래피는 ../page.module.scss 의 .article 계열을 그대로 쓰고,
+// 테두리 없이 페이지 전체 너비(100%)로 펼쳐 놓는다.
+
+// 히어로와 동일한 1080px 컨테이너에 맞춰 정렬한다.
+// 본문 좌우 여백은 .article 자체 패딩(42px ≈ 히어로 40px)이 담당.
+.articleShell {
+  max-width: 1080px;
+  margin: 0 auto;
+
+  // 검은 페이지 배경 위에서 글이 묻히지 않도록
+  // 살짝 밝은 카드 배경 + 테두리, 본문 글자는 한 단계 밝게
+  > article {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+
+    p,
+    li {
+      color: #e2e2ea;
+    }
+
+    td {
+      color: #dcdce4;
+    }
+  }
+}

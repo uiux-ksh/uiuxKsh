@@ -198,6 +198,12 @@
   border-radius: 20px;
 }
 
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .projectLink {
   display: inline-block;
   padding: 10px 24px;
@@ -212,6 +218,12 @@
     opacity: 0.85;
     transform: translateY(-2px);
   }
+}
+
+// 두 번째 버튼 — 배경 대신 테두리만 있는 보조 스타일
+.projectLinkOutline {
+  background: transparent;
+  border: 1px solid;
 }
 
 @media (max-width: 860px) {

@@ -161,6 +161,11 @@
   background-clip: text;
   color: transparent;
   font-style: italic;
+  // 이탤릭으로 기울어진 글자가 background-clip 영역 밖으로 나가 잘리지 않도록
+  // 좌우·아래에 배경이 덮이는 여백을 준다
+  display: inline-block;
+  padding: 0 0.12em 0.08em;
+  margin: 0 -0.04em;
 }
 
 .subtitle {

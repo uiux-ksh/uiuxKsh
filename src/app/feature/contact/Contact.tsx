@@ -128,8 +128,8 @@ export default function Contact() {
       <div className={styles.inner}>
         <p className={styles.eyebrow}>GET IN TOUCH</p>
         <h2 className={styles.headline}>
-          Let&apos;s build <br />
-          something <span className={styles.highlight}>together</span>.
+          시간 내주셔서 <br />
+          <span className={styles.highlight}>감사합니다</span>.
         </h2>
         <p className={styles.subtitle}>
           새로운 프로젝트, 협업, 또는 그냥 인사 — 언제든 환영합니다.

@@ -13,8 +13,28 @@
 }
 
 .header {
+  position: relative;
   text-align: center;
   margin-bottom: 60px;
+}
+
+// 숙련도 % 기준 안내 — 헤더 오른쪽 위에 배치
+.headerNote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 240px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: right;
+  color: var(--color-text-secondary);
+
+  @media (max-width: 860px) {
+    position: static;
+    max-width: none;
+    margin-top: 12px;
+    text-align: center;
+  }
 }
 
 .label {

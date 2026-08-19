@@ -117,13 +117,16 @@ const PROJECTS = [
       'WebSocket 기반 AI 챗봇 실시간 스트리밍 UI',
       'MCP 연동 — Google, YouTube 등 외부 서비스 통합',
       '보고서용 데이터 시각화 차트 MCP 개발',
+      'PostHog 사용자 행동 모니터링 연동 — 방문·클릭·세션 리플레이 분석',
     ],
     image: '/images/didim-ai.png',
     bgColor: '#0f0a1a',
     accentColor: '#8b5cf6',
-    tags: ['Next.js', 'React Flow', 'WebSocket', 'SSE', 'React Query', 'Zustand', 'TypeScript'],
+    tags: ['Next.js', 'React Flow', 'WebSocket', 'SSE', 'React Query', 'Zustand', 'TypeScript', 'PostHog'],
     link: '/reportmcp',
     linkLabel: 'ReportMCP 템플릿 에디터 보기',
+    link2: '/reportmcp/monitoring',
+    link2Label: '보고서 모니터링',
   },
   {
     id: 'dxvx-chat',
@@ -152,7 +155,7 @@ const PROJECTS = [
       '허니 토큰, 스타 가디언 등 대규모 이벤트 페이지',
       'GSAP 스크롤 애니메이션 · 인터랙티브 UI',
       '아토믹 디자인 패턴 컴포넌트 아키텍처',
-      'Figma 디자인 → 픽셀 퍼펙트 구현',
+      'Figma 디자인 → 반응형 웹 구현',
     ],
     image: '/images/riot_1.jpg',
     bgColor: '#1a0808',
@@ -333,20 +336,35 @@ export default function Projects() {
               </div>
 
               {project.link && (
-                <a
-                  href={project.link}
-                  // 내부 라우트(/reportmcp 등)는 같은 탭에서 연다
-                  {...(project.link.startsWith('/')
-                    ? {}
-                    : { target: '_blank', rel: 'noopener noreferrer' })}
-                  className={styles.projectLink}
-                  style={{ background: project.accentColor }}
-                >
-                  {'linkLabel' in project && project.linkLabel
-                    ? project.linkLabel
-                    : '라이브 사이트 보기'}{' '}
-                  &rarr;
-                </a>
+                <div className={styles.linkRow}>
+                  <a
+                    href={project.link}
+                    // 내부 라우트(/reportmcp 등)는 같은 탭에서 연다
+                    {...(project.link.startsWith('/')
+                      ? {}
+                      : { target: '_blank', rel: 'noopener noreferrer' })}
+                    className={styles.projectLink}
+                    style={{ background: project.accentColor }}
+                  >
+                    {'linkLabel' in project && project.linkLabel
+                      ? project.linkLabel
+                      : '라이브 사이트 보기'}{' '}
+                    &rarr;
+                  </a>
+
+                  {'link2' in project && project.link2 && (
+                    <a
+                      href={project.link2}
+                      {...(project.link2.startsWith('/')
+                        ? {}
+                        : { target: '_blank', rel: 'noopener noreferrer' })}
+                      className={`${styles.projectLink} ${styles.projectLinkOutline}`}
+                      style={{ borderColor: `${project.accentColor}88`, color: project.accentColor }}
+                    >
+                      {project.link2Label} &rarr;
+                    </a>
+                  )}
+                </div>
               )}
             </div>
           </div>
