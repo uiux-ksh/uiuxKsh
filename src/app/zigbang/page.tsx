@@ -22,7 +22,7 @@ type Career = {
 const CAREERS: Career[] = [
   {
     company: '디딤365',
-    desc: 'AI 플랫폼(챗봇 · 워크플로우 · RAG) 서비스를 개발하는 클라우드 MSP 기업 · AI개발팀',
+    desc: 'AI 플랫폼(챗봇 · 워크플로우 · RAG) 서비스를 개발하는 300명 규모 클라우드 MSP 기업 · AI개발팀',
     role: 'Frontend Developer',
     period: '2025.02 - 현재',
     tech: [
@@ -84,7 +84,7 @@ const CAREERS: Career[] = [
   },
   {
     company: 'DX&VX (디엑스앤브이엑스)',
-    desc: '코스닥 상장 헬스케어 기업 · 디지털사업전략팀 비대면상담 앱개발팀',
+    desc: '200명 규모 코스닥 상장 헬스케어 기업 · 디지털사업전략팀 비대면상담 앱개발팀',
     role: '주임 · Frontend Developer',
     period: '2024.06 - 2025.01',
     tech: [
@@ -150,7 +150,7 @@ const CAREERS: Career[] = [
   },
   {
     company: '일공이사',
-    desc: '대형 클라이언트 프로젝트 중심의 웹 에이전시',
+    desc: '30명 규모의 웹 에이전시 · 대형 클라이언트 프로젝트 중심',
     role: '주임 · Frontend Developer',
     period: '2022.05 - 2023.12',
     tech: [
@@ -193,10 +193,12 @@ const CAREERS: Career[] = [
         ],
       },
     ],
+    leaveReason:
+      '회사 사옥 이전으로 근무지가 바뀌면서 출퇴근 여건이 크게 달라져 이직을 결정했습니다.',
   },
   {
     company: '수줍은연구소',
-    desc: '웹 서비스 개발 · 운영 기업',
+    desc: '웹 서비스를 개발 · 운영하는 스타트업',
     role: '온라인팀 주임 · Publisher',
     period: '2021.04 - 2022.04',
     tech: ['JavaScript', 'HTML / CSS', 'SCSS', 'jQuery'],
