@@ -20,7 +20,7 @@ type Career = {
 const CAREERS: Career[] = [
   {
     company: '디딤365',
-    desc: 'AI 플랫폼(챗봇 · 워크플로우 · RAG) 서비스를 개발하는 클라우드 MSP 기업',
+    desc: 'AI 플랫폼(챗봇 · 워크플로우 · RAG) 서비스를 개발하는 클라우드 MSP 기업 · AI개발팀',
     role: 'Frontend Developer',
     period: '2025.02 - 현재',
     tech: [
