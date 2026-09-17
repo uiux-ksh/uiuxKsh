@@ -252,7 +252,7 @@ export default function ZigbangPage() {
 
         <div className={styles.divider} />
 
-        <h2 className={styles.sectionTitle}>Why 온하우스.</h2>
+        <h2 className={styles.sectionTitle}>지원 동기.</h2>
         <p className={styles.paragraph}>
           공고에서 가장 마음에 남은 문장은 사용자가 머무를지 떠날지는 대부분 화면에서
           결정된다는 부분이었습니다. 지도를 움직이고, 조건을 좁히고, 매물을 열어보고, 문의를
