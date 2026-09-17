@@ -15,6 +15,8 @@ type Career = {
   period: string;
   tech: string[];
   groups: { title: string; items: string[] }[];
+  /** 퇴사 사유. 설명이 필요한 경우에만 표기한다 */
+  leaveReason?: string;
 };
 
 const CAREERS: Career[] = [
@@ -82,7 +84,7 @@ const CAREERS: Career[] = [
   },
   {
     company: 'DX&VX (디엑스앤브이엑스)',
-    desc: '코스닥 상장 헬스케어 기업 · 디지털사업전략팀',
+    desc: '코스닥 상장 헬스케어 기업 · 디지털사업전략팀 비대면상담 앱개발팀',
     role: '주임 · Frontend Developer',
     period: '2024.06 - 2025.01',
     tech: [
@@ -119,6 +121,8 @@ const CAREERS: Career[] = [
         ],
       },
     ],
+    leaveReason:
+      '회사 재정 악화에 따른 조직 축소로 권고사직되었습니다. 담당하던 서비스는 인수인계를 마치고 정리한 뒤 퇴사했습니다.',
   },
   {
     company: '집쇼코리아',
@@ -313,6 +317,12 @@ export default function ZigbangPage() {
                     </ul>
                   </div>
                 ))}
+                {career.leaveReason && (
+                  <p className={styles.leaveReason}>
+                    <span className={styles.leaveLabel}>이직 사유</span>
+                    {career.leaveReason}
+                  </p>
+                )}
               </div>
             </div>
             <div className={styles.divider} />

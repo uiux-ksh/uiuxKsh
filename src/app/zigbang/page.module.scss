@@ -193,6 +193,30 @@ $accentSoft: rgba(221, 79, 10, 0.07);
   }
 }
 
+/* 이직 사유 */
+.leaveReason {
+  margin-top: 16px;
+  padding: 10px 14px;
+  border-left: 2px solid rgba(221, 79, 10, 0.35);
+  background: rgba(55, 53, 47, 0.03);
+  border-radius: 0 3px 3px 0;
+  font-size: 14.5px;
+  color: rgb(90, 88, 84);
+}
+
+.leaveLabel {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: $accent;
+  background: $accentSoft;
+  border-radius: 3px;
+  padding: 2px 7px;
+  vertical-align: 1px;
+}
+
 /* Skill */
 .skillList {
   list-style: none;
