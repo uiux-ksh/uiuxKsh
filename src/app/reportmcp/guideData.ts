@@ -32,7 +32,7 @@ export interface GuideSection {
 export const GUIDE_INTRO =
   '운영관리팀 및 템플릿을 사용하는 담당자들이 ReportMCP 템플릿의 작성 방법과 기능을 이해하고 활용할 수 있도록 본 가이드를 작성하였습니다.';
 
-/** 실제 등록된 79번 템플릿 — 규칙을 작성·수정하는 편집 화면 */
+/** 개발 테스트 서버의 79번 템플릿 — 규칙을 작성·수정하는 편집 화면 */
 export const TEMPLATE_IFRAME_URL = 'https://aiops.didim.com/report/templates/79';
 
 /** 위 템플릿에 작성한 규칙대로 실제 생성된 보고서 상세 화면 */
