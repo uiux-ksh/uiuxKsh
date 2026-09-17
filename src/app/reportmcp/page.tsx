@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
-  CREATE_IFRAME_URL,
+  TEMPLATE_IFRAME_URL,
+  DETAIL_IFRAME_URL,
   GUIDE_INTRO,
   GUIDE_SECTIONS,
   type GuideSection,
@@ -15,8 +16,9 @@ import styles from './page.module.scss';
  * /reportmcp — 디딤365 ReportMCP 템플릿 에디터 소개 페이지.
  *
  * 포트폴리오 안에서 실무 결과물을 보여주는 구성:
- *  ① 라이브 데모 — 실제 서비스의 템플릿 생성 화면을 iframe 으로 임베드
- *     (guide=1 쿼리로 생성 버튼이 막힌 가이드 모드)
+ *  ① 라이브 데모 — 실제 서비스 화면 2개를 iframe 으로 임베드.
+ *     STEP 1 템플릿 편집 화면(수정 가능) → STEP 2 그 템플릿으로 생성된 보고서.
+ *     둘 다 guide 모드라 저장·생성 버튼은 막혀 있다.
  *  ② 기능 가이드 카드 — 스크린샷 + 요약. [상세보기] 를 누르면
  *     해당 기능 설명이 블로그 글 형태 오버레이로 열린다.
  *
@@ -120,35 +122,95 @@ export default function ReportMcpPage() {
       <section className={styles.demo} aria-label="라이브 데모">
         <div className={styles.demoHead}>
           <h2 className={styles.sectionTitle}>
-            <span className={styles.dot} /> 라이브 데모 — 템플릿 생성 화면
+            <span className={styles.dot} /> 라이브 데모 — 템플릿을 쓰면 보고서가 나온다
           </h2>
           <p className={styles.demoDesc}>
-            실제 서비스의 생성 화면입니다. 편집기와 PDF 미리보기를 자유롭게 사용해
-            보세요. <b>가이드 모드라 생성 버튼은 비활성화</b>되어 있어 실제 템플릿은
-            만들어지지 않습니다.
+            실제 서비스 화면 두 개를 그대로 띄웠습니다. <b>위</b>는 규칙을 작성하는
+            템플릿 편집 화면, <b>아래</b>는 그 템플릿으로 실제 생성된 보고서입니다. 위에
+            적어둔 대로 아래 결과가 만들어집니다.
+          </p>
+        </div>
+
+        {/* STEP 1 — 템플릿 편집 화면 */}
+        <div className={styles.step}>
+          <div className={styles.stepHead}>
+            <span className={styles.stepNum}>STEP 1</span>
+            <div className={styles.stepText}>
+              <h3 className={styles.stepTitle}>템플릿 화면 — 여기서 수정합니다</h3>
+              <p className={styles.stepDesc}>
+                실제 운영 중인 <b>79번 템플릿</b>입니다. 보고서에 들어갈 내용을{' '}
+                <b>프롬프트 규칙</b>으로 적어두는 편집 화면으로, &ldquo;데이터가 있으면
+                표를 출력하고, 없으면 안내 문구를 출력하라&rdquo; 같은 조건을 문장으로
+                작성합니다. 편집기와 PDF 미리보기를 직접 만져보실 수 있습니다.
+              </p>
+            </div>
             <a
               className={styles.newTab}
-              href={CREATE_IFRAME_URL}
+              href={TEMPLATE_IFRAME_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
               새 창에서 열기 ↗
             </a>
-          </p>
-        </div>
-        <div className={styles.frameShell}>
-          <div className={styles.frameBar}>
-            <span />
-            <span />
-            <span />
-            <em>aiops.didim.com/report/templates/create/guide</em>
           </div>
-          <iframe
-            className={styles.frame}
-            src={CREATE_IFRAME_URL}
-            title="ReportMCP 템플릿 생성 화면"
-            loading="lazy"
-          />
+          <div className={styles.frameShell}>
+            <div className={styles.frameBar}>
+              <span />
+              <span />
+              <span />
+              <em>aiops.didim.com/report/templates/79</em>
+            </div>
+            <iframe
+              className={styles.frame}
+              src={TEMPLATE_IFRAME_URL}
+              title="ReportMCP 템플릿 편집 화면"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        {/* 흐름 화살표 */}
+        <div className={styles.stepArrow} aria-hidden="true">
+          <span className={styles.arrowLine} />
+          <span className={styles.arrowLabel}>템플릿에 적어둔 규칙대로 생성</span>
+          <span className={styles.arrowLine} />
+        </div>
+
+        {/* STEP 2 — 생성 결과 */}
+        <div className={styles.step}>
+          <div className={styles.stepHead}>
+            <span className={`${styles.stepNum} ${styles.stepNumResult}`}>STEP 2</span>
+            <div className={styles.stepText}>
+              <h3 className={styles.stepTitle}>생성 결과 — 이대로 만들어집니다</h3>
+              <p className={styles.stepDesc}>
+                STEP 1 템플릿에 설명해둔 내용이 실제 고객 데이터와 합쳐져 완성된
+                보고서입니다. 데이터가 있는 항목은 표로, 없는 항목은 안내 문구로 각각
+                자동 분기되어 출력됩니다. <b>사람이 손으로 채운 문서가 아닙니다.</b>
+              </p>
+            </div>
+            <a
+              className={styles.newTab}
+              href={DETAIL_IFRAME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              새 창에서 열기 ↗
+            </a>
+          </div>
+          <div className={styles.frameShell}>
+            <div className={styles.frameBar}>
+              <span />
+              <span />
+              <span />
+              <em>aiops.didim.com/report/detail/633/guide</em>
+            </div>
+            <iframe
+              className={styles.frame}
+              src={DETAIL_IFRAME_URL}
+              title="ReportMCP 템플릿으로 생성된 보고서"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
