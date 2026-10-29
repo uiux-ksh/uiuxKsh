@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import styles from './page.module.scss';
 
 export const metadata: Metadata = {
-  title: '김성훈 | 온하우스 · 네모 프론트엔드 개발자 지원',
+  title: '김성훈 | SK렌터카 프론트엔드 개발자 지원',
   description:
-    '탐색에서 전환까지, 화면을 수치로 개선해온 5년차 프론트엔드 개발자 김성훈입니다.',
+    '공통 컴포넌트와 업무 화면을 탄탄하게 만들어온 경력 만 4년의 프론트엔드 개발자 김성훈입니다.',
   robots: { index: false, follow: false },
 };
 
@@ -39,6 +39,13 @@ const CAREERS: Career[] = [
     ],
     groups: [
       {
+        title: '공용 컴포넌트 · 디자인 시스템',
+        items: [
+          '모노레포 기반 디자인 시스템 구축 — 디자인 값을 토큰으로 표준화하고 3개 프로덕트의 UI를 일원화',
+          'Storybook URL을 공유해 디자이너가 개발자를 거치지 않고 직접 토큰값과 컴포넌트 상태를 확인하는 협업 프로세스 정착',
+        ],
+      },
+      {
         title: '대용량 리스트 · 탐색 UI',
         items: [
           'RAG 지식관리 화면에 useInfiniteQuery 기반 무한 스크롤을 적용해 페이지네이션 단위로 끊기던 탐색 흐름을 제거. 문서가 수천 건 쌓여도 스크롤 한 번으로 이어서 볼 수 있도록 구성',
@@ -53,13 +60,6 @@ const CAREERS: Career[] = [
           'AI 챗봇 SSE 스트리밍 응답에 rAF 배칭 + 버퍼 flush를 적용해 INP를 300ms대에서 100ms 이하로 개선. 2,000토큰 이상 응답에서도 60fps 유지',
           'n8n 워크플로우 에디터에 3초 디바운스 자동 저장을 설계하고 변경 diff 해싱으로 중복 저장을 차단 — 저장 API 호출 95% 감소, 작업 유실 위험 제거',
           '개선은 감이 아니라 계측으로 판단. 병목을 먼저 측정하고 원인을 좁힌 뒤 손대는 순서를 지킴',
-        ],
-      },
-      {
-        title: '공용 컴포넌트 · 디자인 시스템',
-        items: [
-          '모노레포 기반 디자인 시스템 구축 — 디자인 값을 토큰으로 표준화하고 3개 프로덕트의 UI를 일원화',
-          'Storybook URL을 공유해 디자이너가 개발자를 거치지 않고 직접 토큰값과 컴포넌트 상태를 확인하는 협업 프로세스 정착',
         ],
       },
       {
@@ -214,23 +214,23 @@ const CAREERS: Career[] = [
   },
 ];
 
-export default function ZigbangPage() {
+export default function SkRentacarPage() {
   return (
     <div className={styles.page}>
       <div className={styles.inner}>
         <span className={styles.targetTag}>
-          (주)온하우스 · 온하우스 / 네모 — 경력 프론트엔드 개발자 지원
+          SK렌터카 — 프론트엔드 개발자 (React · TypeScript) 지원
         </span>
         <h1 className={styles.pageTitle}>
-          김성훈 | 탐색에서 전환까지, 화면을 수치로 개선하는 개발자
+          김성훈 | 공통 컴포넌트 위에서 업무 화면을 단단하게 만드는 개발자
         </h1>
 
         <div className={styles.callout}>
           <p>
-            5년차 프론트엔드 개발자 김성훈입니다. React · Next.js · TypeScript 기반으로 AI
-            플랫폼과 다양한 웹 서비스를 개발해왔습니다. 대량 데이터를 끊김 없이 탐색하게
-            만드는 리스트 · 캔버스 UI, 개선 결과를 수치로 확인하는 성능 최적화, 그리고
-            사용자가 어디서 멈추는지를 찾는 이벤트 트래킹이 저의 강점입니다.
+            경력 만 4년의 프론트엔드 개발자 김성훈입니다. React · Next.js · TypeScript 기반으로 B2B
+            AI 플랫폼, 사내 관리자, B2C 서비스 화면을 개발해왔습니다. Storybook으로 문서화한
+            공통 컴포넌트와 디자인 시스템, REST API 연동과 서버 · 클라이언트 상태 분리,
+            그리고 Sentry · PostHog로 운영 이슈를 재현하고 원인을 좁히는 일이 저의 강점입니다.
           </p>
         </div>
 
@@ -260,31 +260,33 @@ export default function ZigbangPage() {
 
         <h2 className={styles.sectionTitle}>지원 동기.</h2>
         <p className={styles.paragraph}>
-          공고를 읽다가 사용자가 머무를지 떠날지는 대부분 화면에서 결정된다는 문장에서 한참
-          멈췄습니다. 지도를 움직이고, 조건을 좁히고, 매물을 열어보고, 문의를 남기기까지.
-          결국 대량의 데이터를 끊김 없이 보여주는 일과, 사용자가 어디서 멈추는지를 확인해
-          고치는 일입니다. 지난 몇 년간 제가 붙들고 있던 문제가 그 두 가지였습니다.
+          공고에서 가장 눈에 들어온 건 기간계 화면 전환이었습니다. 오래 쓰여온 업무 화면을
+          React로 다시 만드는 일은 새 화면을 그리는 것보다 기존 화면이 실제로 무엇을 하고
+          있는지 읽어내는 일이 먼저라고 생각합니다. 퍼블리셔로 jQuery 화면을 유지보수하던
+          시기부터 React · Next.js로 관리자와 서비스 화면을 다시 만들기까지, 레거시를 읽고
+          새 구조로 옮기는 과정을 여러 번 거쳐왔습니다.
         </p>
         <p className={styles.paragraph}>
-          AI 챗봇의 답변이 길어지면 화면이 눈에 띄게 버벅였습니다. rAF 배칭으로 렌더 타이밍을
-          묶어 INP를 300ms대에서 100ms 이하로 내렸습니다. 이미지가 수백 장 쌓이는 리스트는
-          가상화로 초기 요청을 70% 줄였고, 지식관리 화면은 무한 스크롤로 페이지네이션의 끊김을
-          없앴습니다. 매물 리스트와 지도 뷰포트가 쉴 새 없이 갱신되는 환경에서 곧바로 쓸 수
-          있는 경험입니다.
+          업무 화면의 품질은 결국 공통 컴포넌트에서 갈립니다. 디딤365에서는 모노레포 기반
+          디자인 시스템을 구축해 3개 프로덕트의 UI를 하나로 묶었고, Storybook으로 컴포넌트
+          상태를 문서화해 디자이너가 개발자를 거치지 않고 직접 확인하도록 만들었습니다.
+          한앤컴퍼니 관리자 페이지에서는 목록 · 상세 · 등록으로 이어지는 폼과 팝업 화면을
+          REST API와 Zustand로 구성했습니다. 폼 · 그리드 · 팝업이 반복되는 기간계 화면에서
+          바로 쓸 수 있는 경험입니다.
         </p>
         <p className={styles.paragraph}>
-          만들고 나서가 더 중요하다는 것도 배웠습니다. 사내 서비스에 Sentry와 PostHog를 붙이는
-          공용 모니터링 패키지를 직접 설계했고, 어느 화면에 사람이 몰리고 어디서 이탈하는지를
-          세션 리플레이로 들여다봤습니다. 가설을 세우고, 만들고, 숫자로 확인하고, 다시 고치는
-          사이클. 공고에 적힌 그 사이클을 이미 그렇게 돌려왔습니다.
+          운영 이슈를 다루는 방식도 정리해왔습니다. Sentry와 PostHog를 하나로 묶은 공용
+          모니터링 패키지를 직접 설계했고, 에러는 스택으로, 사용성 문제는 세션 리플레이로
+          재현해 원인을 좁힌 뒤 기록으로 남겼습니다. 성능 역시 감이 아니라 계측으로 판단해
+          INP를 300ms대에서 100ms 이하로 내렸습니다.
         </p>
         <p className={styles.paragraph}>
-          부동산 도메인과 지도 SDK는 아직 다뤄본 적이 없습니다. 대신 헬스케어에서 게임, B2B
-          AI 플랫폼으로 옮겨 다닐 때마다 낯선 용어와 데이터 구조를 빠르게 익히고 화면을
-          책임져 왔습니다. 공실 정보에서 매물 데이터, 임대인, 중개사, 임대관리로 이어지는
-          흐름은 단계마다 필요한 정보의 밀도가 다릅니다. 그 간극을 메우는 것이 프론트엔드의
-          일이라고 봅니다. 온하우스에서는 제가 돌려온 사이클이 매물 탐색과 전환이라는 더
-          분명한 지표 위에서 돌아갈 수 있겠다고 생각해 지원하게 되었습니다.
+          모빌리티 도메인은 아직 깊이 다뤄보지 못했습니다. 다만 제네시스 수지 스페이스 공식
+          사이트를 개발하며 자동차 브랜드의 화면을 만들어봤고, 헬스케어 · 게임 · B2B AI
+          플랫폼을 옮겨 다닐 때마다 낯선 데이터 구조를 빠르게 익혀 화면을 책임져 왔습니다.
+          차량 · 계약 · 정비로 이어지는 렌탈 업무는 단계마다 다루는 정보가 많고 정확해야
+          합니다. 그 복잡함을 쓰기 쉬운 화면으로 옮기는 일을 SK렌터카에서 하고 싶어
+          지원하게 되었습니다.
         </p>
 
         <div className={styles.divider} />
@@ -339,23 +341,23 @@ export default function ZigbangPage() {
             <strong>Framework:</strong> React, Next.js (App Router · SSR)
           </li>
           <li>
-            <strong>State / Data:</strong> TanStack Query (React Query), Zustand, REST API
+            <strong>State / Data:</strong> TanStack Query (React Query), Zustand, REST API 연동
           </li>
           <li>
-            <strong>Styling / UI:</strong> SCSS, CSS Modules, Storybook, 디자인 토큰, Atomic
-            Design, GSAP
+            <strong>Component / UI:</strong> Storybook, 디자인 토큰 · 디자인 시스템, Atomic
+            Design, SCSS, CSS Modules
           </li>
           <li>
-            <strong>대용량 UI:</strong> useInfiniteQuery 무한 스크롤, viewport 가상화, Lazy
-            Loading, React Flow 캔버스
+            <strong>업무 화면:</strong> 관리자 목록 · 상세 · 등록 폼, 검색 · 필터, 팝업,
+            useInfiniteQuery 무한 스크롤, viewport 가상화
           </li>
           <li>
-            <strong>Realtime / Media:</strong> SSE 스트리밍, WebSocket, Canvas API, Browser
-            Media API, 3D · VR 콘텐츠
+            <strong>웹 표준 · 성능:</strong> 시맨틱 마크업, 크로스 브라우저 대응, Core Web
+            Vitals(INP) 개선, Lazy Loading
           </li>
           <li>
-            <strong>Monitoring:</strong> PostHog(이벤트 트래킹 · 세션 리플레이 · feature
-            flag), Sentry(에러 트래킹)
+            <strong>운영 · 모니터링:</strong> Sentry(에러 트래킹), PostHog(이벤트 트래킹 ·
+            세션 리플레이)
           </li>
           <li>
             <strong>AI:</strong> Claude Code, LLM 챗봇 · RAG · 워크플로우 UI 개발, MCP 연동
